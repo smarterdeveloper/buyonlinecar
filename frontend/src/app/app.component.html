@@ -1,0 +1,205 @@
+<head>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2%3A400%2C300%2C500%2C600%2C700%7COpen+Sans%3A300%2C400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=1.0.2" type="text/css" media="all">
+  <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.css">
+
+  <title>Bunanycaronline</title>        
+</head>
+
+<div id="main-wrapper">
+
+<!-- header -->
+<header>
+  <div id="header-main">
+      <div class="container clearfix">
+          <div id="header-left">
+              <div class="clearfix">
+                  <!--Logo-->
+                  <a class="header-logo" href="/">
+                      <img src="/assets/img/logo.jpg" alt="Logo">
+                  </a>
+              </div>
+          </div>
+          <div id="header-right">
+              <div id="header-authentication" *ngIf="!currentUser">
+                  <button type="button" data-toggle="modal" data-target="#loginPopup">LOGIN</button>
+                  <span>|</span>
+                  <button type="button" data-toggle="modal" data-target="#registerPopup">REGISTER</button>
+              </div>
+              <div id="header-authentication" *ngIf="currentUser">
+                    <div class="dropdown" id = "nav-mainMenu-links">
+                        <button class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{currentUser.username}}
+                        </button>
+                        <div id="header-authentication" *ngIf="currentUser.type == 'ADMIN'">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="monitor-page">Ad Manage</a>
+                                <a class="dropdown-item" href="user-profile/{{currentUser.id}}">User Profile</a>
+                                <a class="dropdown-item" (click)="logout()">LOGOUT</a>
+                            </div>
+                        </div>
+                        <div id="header-authentication" *ngIf="currentUser.type == 'USER'">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="user-profile/{{currentUser.id}}">User Profile</a>
+                                <a class="dropdown-item" (click)="logout()">LOGOUT</a>
+                            </div>
+                        </div>
+                    </div>                  
+              </div>
+            
+              <div id="header-select">
+                  <div>
+                    <a id="header-language" href="#" data-toggle="dropdown" data-width="100%">
+                        <img src="/assets/img/lang-eng.png">ENGLISH</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Arabic</a></li>
+                        <li><a href="#">French</a></li>
+                    </ul>
+                  </div>
+                  <!--<div>
+                  <a id="header-currency" href="#" data-toggle="dropdown" data-width="100%">
+                      <i class="fa fa-money" style="margin-right: 3px;"></i>AED</a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li><a href="#">USD</a></li>
+                      <li><a href="#">INR</a></li>
+                  </ul>
+                  </div>-->
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <nav id="mainMenu">
+      <div class="container">
+          <div id="mainMenu-inner">
+              <a href="javascript:void(0);" id="mainMenu-icon" (click)="menuFunction()">
+                  <i class="fa fa-bars"></i>
+              </a>
+              <ul id="mainMenu-links" class="clearfix">
+                  <li><a href="#" class="active">Home</a>
+                  </li>
+                  <li><a href="/car-search">Cars</a>
+                  </li>
+                  <li><a href="#">Boats</a>
+                  </li>
+                  <li><a href="#">About</a>
+                  </li>
+                  <li><a href="#">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</header>
+
+<!-- main content -->
+<router-outlet></router-outlet>
+
+<!-- header -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="clearfix">
+          <ul id="footer-links">
+            <li><a href="">Home</a> |
+            </li>
+            <li><a href="/car-search"> Cars</a> |
+            </li>
+            <li><a href="#"> Boats</a> |
+            </li>
+            <li><a href="#"> About</a> |
+            </li>
+            <li><a href="#"> Contact</a> 
+            </li>
+          </ul>
+          <div id="footer-right">© 2019 BUYANYCARONLINE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal fade" id="loginPopup">
+  <div class="modal-dialog" style="max-width: 350px;">
+      <div class="modal-content popup-form">
+          <!-- Modal Header -->
+          <div class="modal-header pf-header">
+              <h4 class="pf-title">Login</h4>
+              <button type="button" class="close pf-close" data-dismiss="modal">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+          </div>
+          <div class="pf-content">
+                <form [formGroup]="loginForm" method="post">
+                    <div class="form-group">
+                        <label class="pf-label">User Name</label>
+                        <input type="text" formControlName="username" class="form-control pf-textInput" [ngClass]="{ 'is-invalid': submitted && fLogin.username.errors }" placeholder="Enter your user name"/>
+                        <div *ngIf="submitted && fLogin.username.errors" class="invalid-feedback">
+                            <div *ngIf="fLogin.username.errors.required">User Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="pf-label">Password</label>
+                        <input type="password" formControlName="password" class="form-control pf-textInput" [ngClass]="{ 'is-invalid': submitted && fLogin.password.errors }" />
+                        <div *ngIf="submitted && fLogin.password.errors" class="invalid-feedback">
+                            <div *ngIf="fLogin.password.errors.required">Password is required</div>
+                            <div *ngIf="fLogin.password.errors.minlength">Password must be at least 6 characters</div>
+                            <div *ngIf="fLogin.password.errors.incorrect">Invalid username or password.</div>
+                        </div>
+                    </div>
+                    <input (click)="onLoginSubmit($event)" type="submit" value="Login" class="pf-submit">
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="registerPopup">
+  <div class="modal-dialog" style="max-width: 350px;">
+      <div class="modal-content popup-form">
+          <!-- Modal Header -->
+          <div class="modal-header pf-header">
+              <h4 class="pf-title">Register</h4>
+              <button type="button" class="close pf-close" data-dismiss="modal">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+          </div>
+          <div class="pf-content">
+                <form [formGroup]="registerForm" method="post">
+                    <div class="form-group">
+                        <label class="pf-label">User Name</label>
+                        <input type="text" formControlName="username" class="form-control pf-textInput" [ngClass]="{ 'is-invalid': submitted && fRegister.username.errors }" placeholder="Enter your user name"/>
+                        <div *ngIf="submitted && fRegister.username.errors" class="invalid-feedback">
+                            <div *ngIf="fRegister.username.errors.required">User Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="pf-label">Password</label>
+                        <input type="password" formControlName="password" class="form-control pf-textInput" [ngClass]="{ 'is-invalid': submitted && fRegister.password.errors }"  placeholder="Enter your password"/>
+                        <div *ngIf="submitted && fRegister.password.errors" class="invalid-feedback">
+                            <div *ngIf="fRegister.password.errors.required">Password is required</div>
+                            <div *ngIf="fRegister.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="pf-label">Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control pf-textInput" [ngClass]="{ 'is-invalid': submitted && fRegister.confirmPassword.errors }"  placeholder="Enter your confirm password" />
+                        <div *ngIf="submitted && fRegister.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="fRegister.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="fRegister.confirmPassword.errors.minlength">Password must be at least 6 characters</div>
+                            <div *ngIf="fRegister.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            <div *ngIf="fRegister.confirmPassword.errors.exist">Invalid username or password.</div>
+                        </div>
+                    </div>
+                    <input (click)="onRegisterSubmit($event)" type="submit" value="Register" class="pf-submit">
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+</div>
+
+

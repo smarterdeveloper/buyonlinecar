@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "anycaronline-8bf60",
+  "private_key_id": "e8c4cb1ef5e274b25ca55e2455ce97228035ecd3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDfyxrbV0zArto\n5nl5WnuX9Zkcn0X+nujroy3TNJtAgLnYWVkXoMHbbIi9EdE3IxU2VPaaCh0agluu\nteh/Zu07BbYkj8zSatIH+X0rTnreGhIdn2FpT68tkTesoAT8IvW7FAmsHYfHK8VA\nPIy8EZx9cwcOy7+ZYIaMP7wry9l2bld5hMkCwQwE055cgphVujdc7+f6zqXvUD4L\nSIZ+CbJVwU2Z+ZdNFRK0QDM79oiZTTVGEiZqbvsV225KP47S3+hNLkdaj9ZZGxjN\ntWjNcIFXtJiyJ4w5rwX5A+budUqWohqi8XEwCBx/JdGK700tf+OaNiawgqi9LyvB\ncMWchrqRAgMBAAECgf9HxfjyhKq8f6EU8jv6AbsLUm/UKLJZ7AQEZVrKbK+GQiLF\nyCFqO1FXOpGfi8Fz3/Cs8de+CT7shjXpMeZNLLMMAemaCSSTKNFtFa71Dbfhf7c6\nIoZw7RoAPY0v8DZKtP5JByJF8Z5X0T1De13WVK211CiGYudra05g6N7827c+P/K6\nrq8bzER8fbWjTP+YI4EFr8FC1vLag50OyzQ5kI2oJhLLWEmtMkQPPJo7MvEcOujV\nj5lArNcmyGiOi8iRYxLOPsBtr/tOFFuXHXTykiWvcTPdbqnXmhQ7paLFlzgxajHC\nnIkiRrTyfO51JkbNU3cLOxcfQNKwB2v0cXlRASECgYEA9UA4itkIDp9PbZhJ7ef2\nJQek/q4wrSgGh/lK54in2WNmhr2YJOxjwSQp2mG7r8cnHQGmQLnikiF1UgZGCCNV\nBAwTUccpyfGks3ljXDeby/zuj1QHkdHh7cxqowMmcC/q0gPq4S8O1vmhxmJ5RDJT\n2uCrruahLSQUu8PI6Ej7iPECgYEAzBCy29NcPhhO6w+1sJrPr7QA2mSik17mHGya\nrpp+Z3oyYfbaf7Mp7x3i50GpMuJdD51DQfROMNcw75cA32iRE99Ff4nTuHb1HkmI\nkP579kP088vdpScsD9+3r6kvNoJEyJqm1VYX1ktGefWLW4qAzIJlXZk2CPyMo9rA\nMrCnS6ECgYEAgHJGKtJIWgAuBWRBNAzM6c/7Jjfs3oOcCBMUm/cCkeRxihg6WvxD\nsqBSG0Icno9beOGoRTYV6BsF6xPGEfUPTbNVWvtIc6/PZwAofd/SBSBPgVmtLT4T\nagwpvX6k3xT5k0zh81ZGG2laxSBGCuWg7X3F7TB1McM36K89xgqTUsECgYEAgia4\nXNouf/AzDVskr7Hdepvc223J/yJMs55U/b3NlyPp1G+EJmRX/4lZOdO4HZsgbaAI\n0J0H7cCiFn2B8fuYZEtH4TM/1OwSJDIUJx4YZBYtufyxre8Q/ELcve2zDhoB0sxI\nUdKqO2QhXBHOwyDQSx9zlUHto8enz63qXaor2WECgYEA6cuNmKg7Uwv1vLK6QwfP\n+hoGTzrYQpn2JaLeCAzub6G4FRoyBLr52DnzZT2NstiFWitgx6JEC/p5KZ/PGQMf\nC03d1OOFYF/TyHvzgrA7BUeuht3RtNxxICYLVR6Mkpp9BiDC/CTSdGw7yYT5WySE\nmwP3m5uRimDtvFZK+JmpeXQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-uftbj@anycaronline-8bf60.iam.gserviceaccount.com",
+  "client_id": "115986796940509351963",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-uftbj%40anycaronline-8bf60.iam.gserviceaccount.com"
+}

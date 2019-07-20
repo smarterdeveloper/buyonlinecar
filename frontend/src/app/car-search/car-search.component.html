@@ -1,0 +1,123 @@
+
+<div class="main-content-wrapper">
+	<div class="container" id="sr-container">
+		<div class="row">
+			<div id="findBox-container">
+				<div id="find-box">
+					<h2>FIND</h2>
+					<form [formGroup]="findForm" (ngSubmit)="onSubmit()">
+						<div class="col-md-12 col-sm-12">
+							<div class="hf-label">MAKE</div>
+							<div class="hf-select">
+								<select formControlName = "make" class = "selectpicker" (change) = "onMakeChange($event)" title="SELECT NAME" data-width="100%">
+									<option [value] = ""></option>
+									<option *ngFor =  "let make of makes" [value] = "make.id">{{make.value}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="hf-label">MODEL</div>
+							<div class="hf-select">
+								<select formControlName = "model" class="selectpicker" title="SELECT MODEL" data-width="100%">
+									<option [value] = ""></option>
+									<option *ngFor="let model of models" [value]="model.id" >{{model.modelvalue}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="hf-label">YEAR</div>
+							<div class="hf-select half">
+								<select formControlName = "fromYear" class="selectpicker" title="FROM" data-width="100%">
+									<option [value] = ""></option>
+									<option [value]="year" *ngFor="let year of fromYears">{{year}}</option>
+								</select>
+							</div>
+							<div class="hf-select half">
+								<select formControlName = "toYear" class="selectpicker" title="TO" data-width="100%">
+									<option [value] = ""></option>
+									<option [value]="year" *ngFor="let year of toYears">{{year}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="hf-label">PRICE</div>
+							<div class="hf-select half">
+								<select formControlName = "fromPrice" class="selectpicker" title="FROM" data-width="100%">
+									<option [value] = ""></option>
+									<option [value]="price" *ngFor="let price of fromPrices">{{price}}</option>
+								</select>
+							</div>
+							<div class="hf-select half">
+								<select formControlName = "toPrice" class="selectpicker" title="TO" data-width="100%">
+									<option [value] = ""></option>
+									<option [value]="price" *ngFor="let price of toPrices">{{price}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="hf-label">ORDER</div>
+							<div class="hf-select">
+								<select formControlName = "orderid" class="selectpicker" title="SELECT ORDER" data-width="100%">
+									<option value = "HIGHEST_PRICE">Highest Price</option>
+									<option value = "LOWEST_PRICE">Lowest Price</option>
+									<option value = "NEWEST">Newest</option>
+									<option value = "OLDEST">Oldest</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<button type="submit" class="button" id="hf-button">Search</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="searchResultsBox-container">
+				<div id="searchResults-box">
+					<div style="border-bottom: 1px solid #2f3c40;">
+						<h2>Search Results</h2>
+						<div id="sortby-container">
+							<div id="sortby-label">Sort by:</div>
+							<div id="sortby">
+								<a id="sortby-selected" href="#" data-toggle="dropdown" 
+								   data-width="100%">Highest Price</a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a>Highest Price</a></li>
+									<li><a>Lowest Price</a></li>
+									<li><a>Newest</a></li>
+									<li><a>Oldest</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="searchResults-item" *ngFor = "let car of cars">
+						<div class="searchResult-image">
+							<img [src]="car.imgFile">
+						</div>
+						<div class="searchResult-info">
+							<div>
+								<a (click)="getCarDetailById(car.id)" class="searchResultInfo-title"> {{car.title}}</a>
+								<div class="searchResultInfo-price"> {{car.price | currency}}</div>
+							</div>
+							<div>
+								<div class="searchResult-info-inner1">
+									<div><span>Make:</span> {{car.make}}</div>
+									<div><span>Model:</span> {{car.model}}</div>
+									<div><span>Transmission:</span> {{car.transmission}}</div>
+								</div>
+								<div class="searchResult-info-inner2">
+									<div><span>Fuel Type:</span> {{car.fueltype}}</div>
+									<div><span>Condition:</span> {{car.condition}}</div>
+								</div>
+							</div>
+							<div class="searchResultInfo-date"><span>Created Date:</span> {{car.year}}</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div id="adBox-container">
+				<div id="ad-box">Empty block for ads</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,112 @@
+<!--main content-->
+	<div id="home-main">
+		<div class="container-fluid" id="home-container">
+			<div id="home-bg">
+				<div id="home-bg-inner">
+					<div id="home-form" class="clearfix">
+						<a (click) = "onPlaceAd()" id="placeAd"><i class="fa fa-plus-square" aria-hidden="true"></i> Place Ad</a>
+						<div style="position: relative;">
+
+							<h2>FIND VEHICLE</h2>
+							<form [formGroup]="findForm" (ngSubmit) = "onSubmit()" mothod = "post" style="margin: 0;">
+								<div class="row">
+									<div class="col-md-4 col-sm-12">
+										<div class="hf-label" style="">Motor</div>
+										<div class="hf-select">
+											<select formControlName = "motor" class = "selectpicker" title="SELECT MOTOR" data-width="100%">
+												<option *ngFor =  "let motor of motors" [value] = "motor.id">{{motor.value}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12">
+										<div class="hf-label" style="">MAKE</div>
+										<div class="hf-select">
+											<select formControlName = "make" class = "selectpicker" (change) = "onMakeChange($event)" title="SELECT MAKE" data-width="100%">
+												<option *ngFor =  "let make of makes" [value] = "make.id">{{make.value}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12">
+										<div class="hf-label">MODEL</div>
+										<div class="hf-select">
+											<select id = "modelnew" formControlName = "model" class="selectpicker" title="SELECT MODEL" data-width="100%">
+												<option *ngFor="let model of models" [value]="model.id" >{{model.modelvalue}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">PRICE</div>
+										<div class="hf-select half">
+											<select formControlName = "fromPrice" class="selectpicker" title="FROM" data-width="100%">
+												<option [value]="price" *ngFor="let price of fromPrices">{{price}}</option>
+											</select>
+										</div>
+										<div class="hf-select half">
+											<select formControlName = "toPrice" class="selectpicker" title="TO" data-width="100%">
+												<option [value]="price" *ngFor="let price of toPrices">{{price}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">YEAR</div>
+										<div class="hf-select half">
+											<select formControlName = "fromYear" class="selectpicker" title="FROM" data-width="100%">
+												<option [value]="year" *ngFor="let year of fromYears">{{year}}</option>
+											</select>
+										</div>
+										<div class="hf-select half">
+											<select formControlName = "toYear" class="selectpicker" title="TO" data-width="100%">
+												<option [value]="year" *ngFor="let year of toYears">{{year}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">COLOR</div>
+										<div class="hf-select">
+											<select formControlName = "color" class="selectpicker" title="SELECT COLOR" data-width="100%">
+												<option *ngFor="let color of colors" [value]="color" >{{color}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">TRANSMISSION</div>
+										<div class="hf-select">
+											<select formControlName = "transmission" class="selectpicker" title="SELECT TRANSMISSION" data-width="100%">
+												<option *ngFor="let transmission of transmissions" [value]="transmission" >{{transmission}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">FUEL TYPE</div>
+										<div class="hf-select">
+											<select formControlName = "fueltype" class="selectpicker" title="SELECT FUELTYPE" data-width="100%">
+												<option *ngFor="let fueltype of fueltypes" [value]="fueltype" >{{fueltype}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-12 advancedf">
+										<div class="hf-label">CONDITION
+										</div>
+										<div class="hf-select">
+											<select formControlName = "condition" class="selectpicker" title="SELECT CONDITION" data-width="100%">
+												<option *ngFor="let condition of conditions" [value]="condition" >{{condition}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12">
+										<a href="javascript:void(0);" (click)="showHomeAdvanced()" id="home-advanced">ADVANCED SEARCH <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+										<button type="submit" class="button" id="hf-button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
